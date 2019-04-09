@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WebAPIXamarinForm"
+             x:Class="WebAPIXamarinForm.MainPage">
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" >
+            <StackLayout Orientation="Vertical" >
+                <Label Text="Id:" FontSize="Large" ></Label>
+                <Entry x:Name="txtIdCategoria" FontSize="Large" WidthRequest="50" TextChanged="TxtIdCategoria_TextChanged" ></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" >
+                <Label Text="Categoría:" FontSize="Large" ></Label>
+                <Label x:Name="lblCategoria" FontSize="Large" ></Label>
+            </StackLayout>
+        </StackLayout>
+        <Button x:Name="btnBuscarProductos" Text="Buscar productos" Clicked="btnBuscarProductos_Clicked" ></Button>
+        <ListView x:Name="lstProductos" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Horizontal" >
+                                <StackLayout Orientation="Vertical" >
+                                    <StackLayout Orientation="Horizontal" >
+                                        <Label Text="{Binding ProductId}" />
+                                        <Label Text="{Binding ProductName}" />
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" >
+                                            <Label Text="Precio unitario: " />
+                                            <Label Text="{Binding UnitPrice, StringFormat='{0:N2}'}" Font="Bold" />
+                                            <Label Text="Unidades en stock: " />
+                                            <Label Text="{Binding UnitsInStock}" Font="Bold" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Label x:Name="lblInfo" ></Label>
+    </StackLayout>
+
+</ContentPage>
